@@ -1,0 +1,104 @@
+## Contexte du projet :
+
+**Créer un simulateur web interactif** qui permet à un utilisateur de visualiser l’évolution de son patrimoine en fonction de ses revenus, dépenses et choix d'investissement.
+
+## 🛠 Stack recommandée :
+
+- **Frontend** : React.js (ou Next.js pour plus tard)
+- **Backend** : Flask ou FastAPI (API REST simple)
+- **Data** : Python (logique de calcul des projections)
+- **Database (optionnel)** : SQLite ou juste local JSON si pas d’authentification
+- **Charts** : Chart.js (React wrapper) ou Plotly
+
+---
+
+## 📅 Semaine par semaine (version 100% code)
+
+---
+
+### 🔹 Semaine 1 – Spécifications & Architecture
+
+### 🎯 Objectifs :
+
+- Rédiger ton **Product Brief** :
+    - Problème utilisateur
+    - Fonction principale (projection simple)
+    - 3 personas utilisateurs
+    - Hypothèse de valeur
+- Définir le **scope technique** :
+    - Routes de l’API (ex : `/simulate`)
+    - Inputs attendus (revenu, dépenses, investissement, durée)
+    - Outputs (liste de valeurs mensuelles)
+- Design low-fi du front avec Figma ou sur papier
+- Setup du repo GitHub + structure projet
+
+### 🛠 Livrables :
+
+- `/api/simulate` (spec)
+- `/front` base React
+- Product brief en Markdown
+
+### 🔹 Semaine 2 – Backend & Simulateur
+
+### 🎯 Objectifs :
+
+- Implémenter le **simulateur en Python** :
+    - Intérêts composés : `FV = PMT * (((1 + r)^n - 1) / r)`
+    - Inflation ? Scénarios ?
+- Créer une API REST simple :
+    - `/simulate` qui prend un JSON (inputs utilisateur)
+    - Renvoie une projection (liste de mois + patrimoine estimé)
+- Tester l’API avec Postman ou curl
+
+### 🛠 Livrables :
+
+- `simulate.py` (logique métier)
+- `api.py` (Flask ou FastAPI)
+- Test de simulation (tu envoies un payload, tu récupères des valeurs)
+
+---
+
+### 🔹 Semaine 3 – Frontend & UX
+
+### 🎯 Objectifs :
+
+- Créer le front React :
+    - Page unique avec formulaire d’entrée
+    - Sliders (revenu, dépenses, montant investi, durée)
+    - Bouton “Simuler” → appelle l’API `/simulate`
+- Affichage des résultats :
+    - Graphique dynamique (Chart.js ou Plotly)
+    - Valeurs clés : total épargné, valeur finale
+
+### 🛠 Livrables :
+
+- `App.jsx` avec formulaire + composants
+- `ChartComponent.jsx`
+- Intégration avec API backend
+
+---
+
+### 🔹 Semaine 4 – Design, Tests & Feedback
+
+### 🎯 Objectifs :
+
+- Ajouter un minimum de design (Tailwind CSS ou simple CSS)
+- Mettre ton app en ligne :
+    - Front : Vercel
+    - Back : Render ou Railway (API Flask)
+- Créer un petit doc README + poster une démo gif sur Twitter
+- Demander du feedback à 2-3 personnes
+
+### 🛠 Livrables :
+
+- `README.md` bien propre
+- Lien live front + API
+- Tweet du cowboy 🤠 avec ton premier build solo
+
+---
+
+## 🚀 Bonus (si t’as le temps)
+
+- Ajouter une notion d’épargne mensuelle variable
+- Créer un mode "dark"
+- Ajouter une estimation en “patrimoine net après inflation”
