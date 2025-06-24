@@ -2,17 +2,78 @@
 <html>
 <head>
   <title>Prospera</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f9fc;
+      color: #222;
+    }
+
+    h1 {
+      color: #0a58ca;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #0a58ca;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #084298;
+    }
+
+    #result {
+      background-color: white;
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      max-width: 600px;
+    }
+
+    canvas {
+      margin-top: 30px;
+      background: #fff;
+      border-radius: 6px;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Powered by Prospera</h1>
-  <label>Monthly savings : <input id="pmt" type="number" /></label><br />
-  <label>Yearly rate (%) : <input id="rate" type="number" /></label><br />
-  <label> Nb of months : <input id="duration" type="number" /></label><br />
+  <h1>🔥 Simulateur FIRE — Powered by Prospera</h1>
+
+  <label>Monthly savings (€) : <input id="pmt" type="number" /></label>
+  <label>Yearly rate (%) : <input id="rate" type="number" /></label>
+  <label for="fireTarget">Objectif FIRE (€) :</label>
+  <input type="number" id="fireTarget" value="500000">
+  <label>Duration (months) : <input id="duration" type="number" /></label>
+  
   <button onclick="launchSimulation()">Simulate</button>
 
-  <h2>Your results :</h2>
-  <pre id="result"></pre>
+  <div id="result"></div>
 
+  <canvas id="projectionChart" width="800" height="400"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
